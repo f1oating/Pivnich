@@ -1,9 +1,21 @@
-#include "Pivnich.h"
+#include <Pivnich.h>
 
-int main()
+class Sandbox : public PV::Application
 {
-    PV::Log::Init();
-    PV_WARN("Engine started");
-    PV_CORE_WARN("Engine started");
-    return 0;
+public:
+	Sandbox()
+	{
+
+	}
+
+	~Sandbox()
+	{
+
+	}
+
+};
+
+PV::Application* PV::CreateApplication()
+{
+	return new Sandbox();
 }
