@@ -1,7 +1,7 @@
 #pragma once
 
 // **************** Core **************** //
-#include "Pivnich/Core/Application.h"
+#include "Pivnich/Core/App.h"
 #include "Pivnich/Core/Log.h"
 // ************************************** //
 

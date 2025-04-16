@@ -21,16 +21,18 @@ namespace PV {
 
 }
 
-// Core log macros
+// ---------------------------- Core Logger Macros ------------------------------ //
 #define PV_CORE_ERROR(...)		::PV::Log::GetCoreLogger()->error(__VA_ARGS__)
 #define PV_CORE_WARN(...)		::PV::Log::GetCoreLogger()->warn(__VA_ARGS__)
 #define PV_CORE_INFO(...)		::PV::Log::GetCoreLogger()->info(__VA_ARGS__)
 #define PV_CORE_TRACE(...)		::PV::Log::GetCoreLogger()->trace(__VA_ARGS__)
 #define PV_CORE_FATAL(...)		::PV::Log::GetCoreLogger()->fatal(__VA_ARGS__)
+// ------------------------------------------------------------------------------ //
 
-// Client log macros
+// ---------------------------- Client Logger Macros ---------------------------- //
 #define PV_ERROR(...)			::PV::Log::GetClientLogger()->error(__VA_ARGS__)
 #define PV_WARN(...)			::PV::Log::GetClientLogger()->warn(__VA_ARGS__)
 #define PV_INFO(...)			::PV::Log::GetClientLogger()->info(__VA_ARGS__)
 #define PV_TRACE(...)			::PV::Log::GetClientLogger()->trace(__VA_ARGS__)
 #define PV_FATAL(...)			::PV::Log::GetClientLogger()->fatal(__VA_ARGS__)
+// ------------------------------------------------------------------------------ //

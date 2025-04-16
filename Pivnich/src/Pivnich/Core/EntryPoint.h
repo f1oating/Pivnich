@@ -2,15 +2,15 @@
 
 #ifdef PV_PLATFORM_WINDOWS
 
-extern PV::Application* PV::CreateApplication();
+extern PV::App* PV::CreateApp();
 
 int main(int argc, char** argv)
 {
     PV::Log::Init();
-    PV_CORE_WARN("Initialized Log!");
+    PV_CORE_INFO("Initialized Log!");
 
-    auto app = PV::CreateApplication();
-    app->Run();
+    PV::App* app = PV::CreateApp();
+    app->Loop();
     delete app;
 }
 

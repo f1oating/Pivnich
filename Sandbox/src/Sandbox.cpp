@@ -1,6 +1,6 @@
 #include <Pivnich.h>
 
-class Sandbox : public PV::Application
+class Sandbox : public PV::App
 {
 public:
 	Sandbox()
@@ -15,7 +15,7 @@ public:
 
 };
 
-PV::Application* PV::CreateApplication()
+PV::App* PV::CreateApp()
 {
 	return new Sandbox();
 }
