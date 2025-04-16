@@ -52,6 +52,9 @@ project "Pivnich"
 			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"")
 		}
 
+	filter "language:C++"
+		buildoptions { "/utf-8" }
+
 	filter "configurations:Debug"
 		defines "PV_DEBUG"
 		runtime "Debug"
@@ -95,6 +98,9 @@ project "Sandbox"
     {
         "Pivnich"
     }
+
+	filter "language:C++"
+		buildoptions { "/utf-8" }
 
     filter "system:windows"
         systemversion "latest"

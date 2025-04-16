@@ -1,7 +1,9 @@
-#include <iostream>
+#include "Pivnich.h"
 
 int main()
 {
-    std::cout << 5;
+    PV::Log::Init();
+    PV_WARN("Engine started");
+    PV_CORE_WARN("Engine started");
     return 0;
 }
