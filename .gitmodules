@@ -1,0 +1,3 @@
+[submodule "Pivnich/vendor/spdlog"]
+	path = Pivnich/vendor/spdlog
+	url = https://github.com/gabime/spdlog

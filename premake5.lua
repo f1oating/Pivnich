@@ -32,18 +32,10 @@ project "Pivnich"
 		"%{prj.name}/src/**.cpp",
 	}
 
-	defines
-	{
-		"_CRT_SECURE_NO_WARNINGS"
-	}
-
 	includedirs
 	{
+		"%{prj.name}/vendor/spdlog/include",
 		"%{prj.name}/src"
-	}
-
-	links 
-	{
 	}
 
 	filter "system:windows"
@@ -57,7 +49,7 @@ project "Pivnich"
 
 		postbuildcommands
 		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
+			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"")
 		}
 
 	filter "configurations:Debug"
@@ -95,8 +87,8 @@ project "Sandbox"
 
     includedirs
     {
-        "Pivnich/src",
-        "Pivnich/vendor",
+		"Pivnich/vendor/spdlog/include",
+        "Pivnich/src"
     }
 
     links
