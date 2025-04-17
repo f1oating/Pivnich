@@ -12,6 +12,9 @@ workspace "Pivnich"
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
+IncludeDir["glfw"] = "Pivnich/vendor/glfw/include"
+
+include "Pivnich/vendor/glfw"
 
 project "Pivnich"
 	location "Pivnich"
@@ -35,7 +38,13 @@ project "Pivnich"
 	includedirs
 	{
 		"%{prj.name}/vendor/spdlog/include",
-		"%{prj.name}/src"
+		"%{prj.name}/src",
+		"%{IncludeDir.glfw}",
+	}
+
+	links
+	{
+		"glfw"
 	}
 
 	filter "system:windows"
