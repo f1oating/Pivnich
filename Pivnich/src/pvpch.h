@@ -15,3 +15,5 @@
 #ifdef PV_PLATFORM_WINDOWS
 #include <Windows.h>
 #endif
+
+#include "Pivnich/Core/Log.h"
