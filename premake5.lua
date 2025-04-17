@@ -13,8 +13,15 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
 IncludeDir["glfw"] = "Pivnich/vendor/glfw/include"
+IncludeDir["glad"] = "Hazel-Tutor/vendor/glad/include"
 
-include "Pivnich/vendor/glfw"
+group "Dependencies"
+	include "Pivnich/vendor/glfw"
+	include "Pivnich/vendor/glad"
+
+group ""
+
+-------------------------------------------------------------
 
 project "Pivnich"
 	location "Pivnich"
@@ -40,11 +47,13 @@ project "Pivnich"
 		"%{prj.name}/vendor/spdlog/include",
 		"%{prj.name}/src",
 		"%{IncludeDir.glfw}",
+		"%{IncludeDir.glad}"
 	}
 
 	links
 	{
-		"glfw"
+		"glfw",
+		"glad"
 	}
 
 	filter "system:windows"
@@ -133,3 +142,6 @@ project "Sandbox"
         defines "PV_DIST"
         runtime "Release"
         optimize "On"
+
+
+-------------------------------------------------------------
