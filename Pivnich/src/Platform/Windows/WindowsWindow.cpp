@@ -6,6 +6,8 @@
 #include "Pivnich/Events/MouseEvent.h"
 #include "Pivnich/Events/KeyEvent.h"
 
+#include "Platform/OpenGL/OpenGLContext.h"
+
 namespace PV {
 
 	static bool s_GLFWInitialized = false;
@@ -47,6 +49,9 @@ namespace PV {
 		}
 
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
+		m_Context = std::make_unique<OpenGLContext>(m_Window);
+
+		m_Context->Init();
 
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
@@ -149,6 +154,7 @@ namespace PV {
 	void WindowsWindow::OnUpdate()
 	{
 		glfwPollEvents();
+		m_Context->SwapBuffers();
 	}
 
 	void WindowsWindow::SetVSync(bool enabled)

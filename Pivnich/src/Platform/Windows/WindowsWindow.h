@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Pivnich/Core/Window.h"
+#include "Pivnich/Core/GraphicsContext.h"
 
 #include <GLFW/glfw3.h>
 
@@ -27,6 +28,7 @@ namespace PV {
 		virtual void Shutdown();
 	private:
 		GLFWwindow* m_Window;
+		std::unique_ptr<GraphicsContext> m_Context;
 
 		struct WindowData
 		{

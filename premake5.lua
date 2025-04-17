@@ -13,7 +13,7 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
 IncludeDir["glfw"] = "Pivnich/vendor/glfw/include"
-IncludeDir["glad"] = "Hazel-Tutor/vendor/glad/include"
+IncludeDir["glad"] = "Pivnich/vendor/glad/include"
 
 group "Dependencies"
 	include "Pivnich/vendor/glfw"
@@ -62,7 +62,8 @@ project "Pivnich"
 		defines
 		{
 			"PV_PLATFORM_WINDOWS",
-			"PV_BUILD_DLL"
+			"PV_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands
