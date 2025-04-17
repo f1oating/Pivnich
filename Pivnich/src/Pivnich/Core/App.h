@@ -4,13 +4,15 @@
 
 namespace PV {
 
-    class App
+    class PV_API App
     {
     public:
-        PV_API App();
-        PV_API virtual ~App();
+        App();
+        virtual ~App();
 
-        PV_API void Loop();
+        void Loop();
+
+        void OnEvent();
     };
 
     App* CreateApp();

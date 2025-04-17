@@ -19,4 +19,9 @@ namespace PV {
 		while (true);
 	}
 
+	void App::OnEvent()
+	{
+
+	}
+
 }

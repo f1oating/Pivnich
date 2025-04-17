@@ -7,7 +7,7 @@ extern PV::App* PV::CreateApp();
 int main(int argc, char** argv)
 {
     PV::Log::Init();
-    PV_CORE_INFO("Initialized Log!");
+    PV_LOG_CORE_INFO("Log initialized");
 
     PV::App* app = PV::CreateApp();
     app->Loop();
