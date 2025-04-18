@@ -3,6 +3,8 @@
 #include "App.h"
 #include "Pivnich/Events/ApplicationEvent.h"
 
+#include <GLFW/glfw3.h>
+
 namespace PV {
 
 #define BIND_EVENT_FN(x) std::bind(&App::x, this, std::placeholders::_1)
@@ -27,10 +29,14 @@ namespace PV {
     {
         while (m_Running)
         {
+            float time = (float)glfwGetTime();
+            Timestep timestep = time - m_LastFrameTime;
+            m_LastFrameTime = time;
+
             if (!m_Minimized)
             {
                 for (Layer* layer : m_LayerStack)
-                    layer->OnUpdate();
+                    layer->OnUpdate(timestep);
             }
 
             m_Window->OnUpdate();

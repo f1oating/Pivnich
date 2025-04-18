@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Base.h"
+#include "Timestep.h"
 #include "Pivnich/Events/Event.h"
 
 namespace PV {
@@ -13,7 +14,7 @@ namespace PV {
 
 		virtual void OnAttach() {}
 		virtual void OnDetach() {}
-		virtual void OnUpdate() {}
+		virtual void OnUpdate(Timestep ts) {}
 		virtual void OnEvent(Event& event) {}
 
 		inline const std::string& GetName() const { return m_DebugName; }

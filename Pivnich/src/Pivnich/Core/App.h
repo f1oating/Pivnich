@@ -3,6 +3,7 @@
 #include "Base.h"
 #include "Window.h"
 #include "LayerStack.h"
+#include "Timestep.h"
 
 #include "Pivnich/Events/Event.h"
 #include "Pivnich/Events/ApplicationEvent.h"
@@ -35,6 +36,8 @@ namespace PV {
         bool m_Running = true;
         bool m_Minimized = false;
         LayerStack m_LayerStack;
+        Timestep m_TimeStep;
+        float m_LastFrameTime = 0.0f;
 
     private:
         static App* s_Instance;
