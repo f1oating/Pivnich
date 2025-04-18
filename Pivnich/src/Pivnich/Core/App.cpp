@@ -29,11 +29,24 @@ namespace PV {
         {
             if (!m_Minimized)
             {
-                
+                for (Layer* layer : m_LayerStack)
+                    layer->OnUpdate();
             }
 
             m_Window->OnUpdate();
         }
+    }
+
+    void App::PushLayer(Layer* layer)
+    {
+        m_LayerStack.PushLayer(layer);
+        layer->OnAttach();
+    }
+
+    void App::PushOverlay(Layer* layer)
+    {
+        m_LayerStack.PushOverlay(layer);
+        layer->OnAttach();
     }
 
     void App::OnEvent(Event& e)
@@ -41,6 +54,13 @@ namespace PV {
         EventDispatcher dispatcher(e);
         dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
         dispatcher.Dispatch<WindowResizeEvent>(BIND_EVENT_FN(OnWindowResize));
+
+        for (auto it = m_LayerStack.end(); it != m_LayerStack.begin(); )
+        {
+            (*--it)->OnEvent(e);
+            if (e.Handled)
+                break;
+        }
     }
 
     bool App::OnWindowClose(WindowCloseEvent& e)
