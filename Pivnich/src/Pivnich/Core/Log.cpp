@@ -6,8 +6,8 @@
 
 namespace PV {
 
-    std::shared_ptr<spdlog::logger> Log::s_CoreLogger;
-    std::shared_ptr<spdlog::logger> Log::s_AppLogger;
+    Ref<spdlog::logger> Log::s_CoreLogger;
+    Ref<spdlog::logger> Log::s_AppLogger;
 
     void Log::Init()
     {
@@ -19,7 +19,7 @@ namespace PV {
         s_AppLogger->set_level(spdlog::level::trace);
     }
 
-    std::shared_ptr<spdlog::logger> Log::GetCoreLogger() { return s_CoreLogger; }
-    std::shared_ptr<spdlog::logger> Log::GetAppLogger() { return s_AppLogger; }
+    Ref<spdlog::logger> Log::GetCoreLogger() { return s_CoreLogger; }
+    Ref<spdlog::logger> Log::GetAppLogger() { return s_AppLogger; }
 
 }

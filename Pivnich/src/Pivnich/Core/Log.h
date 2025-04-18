@@ -11,12 +11,12 @@ namespace PV {
     public:
         static PV_API void Init();
 
-        static PV_API std::shared_ptr<spdlog::logger> GetCoreLogger();
-        static PV_API std::shared_ptr<spdlog::logger> GetAppLogger();
+        static PV_API Ref<spdlog::logger> GetCoreLogger();
+        static PV_API Ref<spdlog::logger> GetAppLogger();
 
     private:
-        static std::shared_ptr<spdlog::logger> s_CoreLogger;
-        static std::shared_ptr<spdlog::logger> s_AppLogger;
+        static Ref<spdlog::logger> s_CoreLogger;
+        static Ref<spdlog::logger> s_AppLogger;
 
     };
 

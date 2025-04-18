@@ -28,7 +28,7 @@ namespace PV {
 		virtual void Shutdown();
 	private:
 		GLFWwindow* m_Window;
-		std::unique_ptr<GraphicsContext> m_Context;
+		Scope<GraphicsContext> m_Context;
 
 		struct WindowData
 		{
