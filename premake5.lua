@@ -14,6 +14,8 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["glfw"] = "Pivnich/vendor/glfw/include"
 IncludeDir["glad"] = "Pivnich/vendor/glad/include"
+IncludeDir["glm"] = "Pivnich/vendor/glm"
+IncludeDir["stb_image"] = "Pivnich/vendor/stb_image"
 
 group "Dependencies"
 	include "Pivnich/vendor/glfw"
@@ -40,6 +42,10 @@ project "Pivnich"
 	{
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/stb_image/**.cpp",
+		"%{prj.name}/vendor/stb_image/**.h",
+		"%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl"
 	}
 
 	includedirs
@@ -47,7 +53,9 @@ project "Pivnich"
 		"%{prj.name}/vendor/spdlog/include",
 		"%{prj.name}/src",
 		"%{IncludeDir.glfw}",
-		"%{IncludeDir.glad}"
+		"%{IncludeDir.glad}",
+		"%{IncludeDir.glm}",
+		"%{IncludeDir.stb_image}"
 	}
 
 	links
@@ -110,7 +118,8 @@ project "Sandbox"
     includedirs
     {
 		"Pivnich/vendor/spdlog/include",
-        "Pivnich/src"
+        "Pivnich/src",
+		"%{IncludeDir.glm}"
     }
 
     links
