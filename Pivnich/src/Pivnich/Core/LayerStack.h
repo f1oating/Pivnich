@@ -5,7 +5,7 @@
 
 namespace PV {
 
-	class PV_API LayerStack
+	class LayerStack
 	{
 	public:
 		LayerStack();

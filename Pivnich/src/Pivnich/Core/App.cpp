@@ -3,6 +3,8 @@
 #include "App.h"
 #include "Pivnich/Events/ApplicationEvent.h"
 
+#include "Pivnich/Render/Renderer.h"
+
 #include <GLFW/glfw3.h>
 
 namespace PV {
@@ -18,11 +20,13 @@ namespace PV {
 
         m_Window = Scope<Window>(Window::Create());
         m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
+
+        Renderer::Init();
     }
 
     App::~App()
     {
-
+        Renderer::Shutdown();
     }
 
     void App::Loop()
@@ -84,6 +88,7 @@ namespace PV {
         }
 
         m_Minimized = false;
+        Renderer::OnWindowResize(e.GetWidth(), e.GetHeight());
 
         return false;
     }

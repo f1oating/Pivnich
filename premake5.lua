@@ -27,7 +27,7 @@ group ""
 
 project "Pivnich"
 	location "Pivnich"
-	kind "SharedLib"
+	kind "StaticLib"
 	language "C++"
 	cppdialect "C++17"
 	staticruntime "off"
@@ -72,11 +72,6 @@ project "Pivnich"
 			"PV_PLATFORM_WINDOWS",
 			"PV_BUILD_DLL",
 			"GLFW_INCLUDE_NONE"
-		}
-
-		postbuildcommands
-		{
-			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"")
 		}
 
 	filter "language:C++"

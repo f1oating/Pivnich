@@ -25,7 +25,7 @@ namespace PV {
         EventCategoryMouseButton = BIT(4)
     };
 
-    class PV_API Event
+    class Event
     {
     public:
         bool Handled = false;

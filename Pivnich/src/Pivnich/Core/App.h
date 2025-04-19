@@ -10,7 +10,7 @@
 
 namespace PV {
 
-    class PV_API App
+    class App
     {
     public:
         App();

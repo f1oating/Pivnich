@@ -9,10 +9,10 @@ namespace PV {
     class Log
     {
     public:
-        static PV_API void Init();
+        static void Init();
 
-        static PV_API Ref<spdlog::logger> GetCoreLogger();
-        static PV_API Ref<spdlog::logger> GetAppLogger();
+        static Ref<spdlog::logger> GetCoreLogger();
+        static Ref<spdlog::logger> GetAppLogger();
 
     private:
         static Ref<spdlog::logger> s_CoreLogger;
